@@ -1,0 +1,11 @@
+[theme]
+base = "dark"
+backgroundColor = "#202028"
+# leve clareada sobre o fundo, para cartoes e a sidebar se destacarem
+secondaryBackgroundColor = "#2a2a34"
+textColor = "#FCF3EC"
+primaryColor = "#E6FF01"
+font = "sans serif"
+
+[server]
+headless = true
