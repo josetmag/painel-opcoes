@@ -13,9 +13,20 @@ copy .env.example .env      # e preencha BRAPI_API_KEY (https://brapi.dev/dashbo
 streamlit run app.py
 ```
 
-Sem chave só funcionam PETR4, VALE3, ITUB4 e MGLU3 (sandbox da brapi). No
-Streamlit Cloud, coloque `BRAPI_API_KEY = "..."` em Settings > Secrets
-(modelo em `secrets_streamlit.toml.example`).
+Sem chave só funcionam PETR4, VALE3, ITUB4 e MGLU3 (sandbox da brapi).
+
+## Login
+
+O painel pede usuário e senha (streamlit-authenticator, mesmo esquema do
+painel de setores). Localmente as credenciais ficam em `credenciais.yaml`
+(fora do git); crie o primeiro usuário com `python gerar_usuario.py`.
+
+## Publicação (Streamlit Community Cloud)
+
+Repositório `josetmag/painel-opcoes`, público (o Community Cloud só permite um
+app privado por conta). Nada sensível vai no código: em Settings > Secrets do
+app cole o bloco de `python gerar_usuario.py --secrets` mais a linha
+`BRAPI_API_KEY = "..."` (modelo em `secrets_streamlit.toml.example`).
 
 ## Abas
 

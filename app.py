@@ -16,6 +16,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from plotly.subplots import make_subplots
 
+import auth
 import brapi_opcoes as api
 import bs
 import estrategias as es
@@ -26,6 +27,7 @@ COR_CALL, COR_PUT, COR_SPOT, COR_NEUTRA = "#4ED6A0", "#FF7A7A", "#E6FF01", "#9aa
 COR_T0, COR_VENC = "#7FB3FF", "#E6FF01"
 
 st.set_page_config(page_title="Painel de Opções", page_icon="📈", layout="wide")
+usuario = auth.exigir_login()
 
 
 # --------------------------------------------------------------------------- #
@@ -250,6 +252,8 @@ with st.sidebar:
     if not api.api_key():
         st.warning(f"Sem BRAPI_API_KEY: só {', '.join(api.SANDBOX)} funcionam. Coloque a chave num arquivo .env ou nos Secrets do Streamlit.", icon="🔑")
     st.caption("Dados: brapi.dev. Cotação do ativo com até 5 min de atraso; opções, IV e gregas do fechamento do pregão anterior.")
+    st.caption(f"Conectado como {usuario}")
+    auth.botao_logout()
 
 
 # --------------------------------------------------------------------------- #

@@ -5,3 +5,6 @@ numpy>=1.26
 requests>=2.32
 python-dotenv>=1.0
 tzdata>=2024.1
+streamlit-authenticator>=0.4.2
+bcrypt>=4.0
+PyYAML>=6.0
